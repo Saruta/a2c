@@ -33,7 +33,7 @@ int lbp(int type)
       return 50;
     case NOT: case UMINUS: case DEREF: case DOT:
       return 40;
-    case STAR: case SLASH:
+    case STAR: case SLASH: case MOD:
       return 30;
     case PLUS: case MINUS: case OR: case XOR: case AND:
       return 20;
@@ -146,6 +146,7 @@ struct expr *infix(struct expr *left, char *expect)
   {
     case PLUS: case MINUS: case STAR: case SLASH: case OR: case XOR:
     case LT: case LE: case GT: case GE: case NEQ: case EQ: case AND:
+    case MOD:
       return binopexpr(left, toktype, expression(lbp(toktype)));
     case LPAREN:
       if (left->exprtype != identtype)
