@@ -94,7 +94,11 @@ void print_free_fun(struct funcall *f)
 
 void print_write_fun(struct funcall *f)
 {
-  assert(strcmp(f->fun_ident, "ecrire") == 0);
+  if (current_lang == LANG_EN)
+    assert(strcmp(f->fun_ident, "write") == 0);
+  else
+    assert(strcmp(f->fun_ident, "ecrire") == 0);
+
   printf("printf(\"");
   for (unsigned i = 0; i < f->args.size - 1; ++i)
   {
@@ -567,7 +571,9 @@ void print_caselist(caseblocklist_t caselist, int indent)
 
 int get_funcall_name(struct funcall *f)
 {
-  if (strcmp(f->fun_ident, "ecrire") == 0)
+  if (strcmp(f->fun_ident, "ecrire") == 0 && current_lang == LANG_FR)
+    return 1;
+  if (strcmp(f->fun_ident, "write") == 0 && current_lang == LANG_EN)
     return 1;
   if (strcmp(f->fun_ident, "allouer") == 0)
     return 2;

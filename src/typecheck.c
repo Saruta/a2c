@@ -50,6 +50,8 @@ char *algo_to_c_type(char *ident)
     return "double";
   else if (strcmp(ident, TYPE_BOOLEAN) == 0)
     return "int";
+  else if (strcmp(ident, TYPE_INT_VECT) == 0)
+    return "t_vect_entiers";
   // If it is none of the primary types, then it is a user-defined type
   // wich will have the same name in the c file as in the algo file.
   return ident;
@@ -483,7 +485,8 @@ bool check_funcall(struct funcall *f, struct symtable *syms, struct type **res)
     return true;
   }
 
-  else if (strcmp(f->fun_ident, "ecrire") == 0)
+  else if (((strcmp(f->fun_ident, "ecrire") == 0) && current_lang == LANG_FR) ||
+           ((strcmp(f->fun_ident, "write") == 0) && current_lang == LANG_EN))
   {
     for (unsigned i = 0; i < f->args.size; ++i)
     {
