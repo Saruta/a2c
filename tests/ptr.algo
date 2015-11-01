@@ -9,7 +9,7 @@ fin algorithme procedure test
 algorithme fonction foo : t_ptr_ptr
 debut
   retourne NUL
-fin algorithme fonction t_ptr_ptr
+fin algorithme fonction foo 
 
 variables
   booleen variable_globale

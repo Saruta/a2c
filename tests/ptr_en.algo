@@ -1,0 +1,23 @@
+algorithm procedure test
+local parameters
+  t_ptr_ptr p
+begin
+  p <- NUL
+  p^^ <- 1
+end algorithm procedure test
+
+algorithm function foo : t_ptr_ptr
+begin
+  return NUL
+end algorithm function foo
+
+variables
+  boolean variable_globale
+  int n
+  t_ptr_ptr p
+types
+  t_ptr = ^int
+  t_ptr_ptr = ^t_ptr
+begin
+  test(p)
+end

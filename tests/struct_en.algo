@@ -1,0 +1,17 @@
+algorithm procedure test
+types
+  t_enregistrement = record
+    int i, j, k
+    boolean b
+    char c
+  end record t_enregistrement
+  t_ptr = ^t_enregistrement
+variables
+  t_ptr p
+begin
+  p^.i <- 1
+end algorithm procedure test
+
+begin
+  test()
+end

@@ -1,0 +1,17 @@
+algorithm procedure test
+variables
+  int a, b
+  real c
+begin
+  a <- 0
+  c <- 4.5
+  if (a = b) then
+    b <- a + b
+  end if
+end algorithm procedure test
+
+variables
+  boolean variable_globale
+begin
+  test()
+end
