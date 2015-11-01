@@ -52,6 +52,8 @@ char *algo_to_c_type(char *ident)
     return "int";
   else if (strcmp(ident, TYPE_INT_VECT) == 0)
     return "t_vect_entiers";
+  else if (strcmp(ident, TYPE_BOOL_VECT) == 0)
+    return "t_vect_booleens";
   // If it is none of the primary types, then it is a user-defined type
   // wich will have the same name in the c file as in the algo file.
   return ident;

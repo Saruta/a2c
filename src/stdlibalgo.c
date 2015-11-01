@@ -72,7 +72,7 @@ void fill_std_types(struct symtable *syms)
   add_type(syms->types, t);
 
   t = malloc(sizeof(struct type));
-  t->name = strdup("t_vect_booleens");
+  t->name = strdup(TYPE_BOOL_VECT);
   t->type_kind = array_t;
   t->type_val.array_type = malloc(sizeof(struct array));
   t->type_val.array_type->type = find_type(syms->types, TYPE_INT);
