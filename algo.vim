@@ -12,7 +12,7 @@ set iskeyword+='
 syn keyword algoKeyword algorithme procedure fonction parametres
 syn keyword algoKeyword algorithm function parameters
 syn keyword algoKeyword globaux locaux variables types constantes
-syn keyword algoKeyword global local
+syn keyword algoKeyword global local constants
 syn keyword algoKeyword jusqu'a
 syn keyword algoKeyword to
 syn keyword algoKeyword debut fin faire alors pour tant que si selon autrement

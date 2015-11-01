@@ -1,0 +1,23 @@
+algorithm function fibo : int
+local parameters
+  int n
+variables 
+  int i, a, b
+constants
+  int c = 0
+  real d = 4.2
+begin
+  a <- 0
+  b <- 1
+  for i <- 1 to n do
+    b <- a + b
+    a <- b - a
+  end for
+  return a
+end algorithm function fibo
+
+variables
+  boolean variable_globale
+begin
+  write(fibo(10))
+end
