@@ -1,0 +1,17 @@
+algorithm procedure foo
+variables
+  int           i
+  t_int_vect    v
+begin
+  for i <- 1 to 10 do
+    v[i] <- i
+  end for
+  for i <- 1 to 10 do
+    write(v[i])
+  end for
+end algorithm procedure foo
+
+begin
+  foo()
+end
+

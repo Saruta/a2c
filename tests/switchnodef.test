@@ -1,6 +1,12 @@
 #!/bin/sh
 set -e
 
+echo "French test:"
 valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./a2c tests/switchnodef.algo > tests/out
 diff tests/switchnodef.c tests/out
+echo "English test:"
+valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all \
+  ./a2c --en tests/switchnodef_en.algo > tests/out
+diff tests/switchnodef.c tests/out
+
 set +e

@@ -1,0 +1,16 @@
+algorithm function multiply: int
+  local parameters
+    int     a, b
+  variables
+    int     p, i
+begin
+  p <- 0
+  for i <- 1 to b do
+    p <- p + a
+  end for
+  return p
+end algorithm function multiply
+
+begin
+  write(multiply( 3, 4))
+end

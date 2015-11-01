@@ -1,0 +1,16 @@
+algorithm procedure test
+local parameters
+  int a
+global parameters
+  int b
+variables
+  int c, d
+begin
+  a <- b + c
+  d <- b - c
+  write(d)
+end algorithm procedure test
+
+begin
+  test( 1, 2 )
+end

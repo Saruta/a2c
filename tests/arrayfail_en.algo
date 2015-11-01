@@ -1,0 +1,19 @@
+algorithm procedure fail
+types
+  t_tab_bool = a * b * 5 boolean
+variables
+  int i, j, k
+  t_tab_bool tab
+begin
+  i <- 1
+  j <- 2
+  k <- 3
+  tab[i, j, k] <- false
+end algorithm procedure fail
+
+constants
+  char a = 'a'
+  int b = 4
+begin
+  fail()
+end

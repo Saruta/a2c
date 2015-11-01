@@ -1,7 +1,14 @@
 #!/bin/sh
 set -e
 
+echo "French test:"
 valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all \
 ./a2c tests/test-param.algo > tests/out
 diff tests/test-param.c tests/out
+
+echo "English test:"
+valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all \
+./a2c --en tests/test-param_en.algo > tests/out
+diff tests/test-param.c tests/out
+
 set +e

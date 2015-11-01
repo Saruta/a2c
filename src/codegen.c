@@ -5,6 +5,8 @@
 #include "lexer.h"
 #include "typecheck.h"
 #include "funtable.h"
+#include "a2c.h"
+#include "stdlibalgo.h"
 #include <assert.h>
 
 #define INDENT_WIDTH 2
@@ -59,14 +61,14 @@ char *getopstr(enum tokentype op)
 
 void print_type_format(char *t)
 {
-  if (strcmp(t, "caractere") == 0)
+  if (strcmp(t, TYPE_CHAR) == 0)
     printf("%%c");
-  else if (strcmp(t, "booleen") == 0
-      || strcmp(t, "entier") == 0)
+  else if (strcmp(t, TYPE_BOOLEAN) == 0
+      || strcmp(t, TYPE_INT) == 0)
     printf("%%d");
-  else if (strcmp(t, "chaine") == 0)
+  else if (strcmp(t, TYPE_STRING) == 0)
     printf("%%s");
-  else if (strcmp(t, "reel") == 0)
+  else if (strcmp(t, TYPE_REAL) == 0)
     printf("%%g");
   else if (strcmp(t, "nul") == 0)
     printf("%%p");
@@ -92,7 +94,11 @@ void print_free_fun(struct funcall *f)
 
 void print_write_fun(struct funcall *f)
 {
-  assert(strcmp(f->fun_ident, "ecrire") == 0);
+  if (current_lang == LANG_EN)
+    assert(strcmp(f->fun_ident, "write") == 0);
+  else
+    assert(strcmp(f->fun_ident, "ecrire") == 0);
+
   printf("printf(\"");
   for (unsigned i = 0; i < f->args.size - 1; ++i)
   {
@@ -565,7 +571,9 @@ void print_caselist(caseblocklist_t caselist, int indent)
 
 int get_funcall_name(struct funcall *f)
 {
-  if (strcmp(f->fun_ident, "ecrire") == 0)
+  if (strcmp(f->fun_ident, "ecrire") == 0 && current_lang == LANG_FR)
+    return 1;
+  if (strcmp(f->fun_ident, "write") == 0 && current_lang == LANG_EN)
     return 1;
   if (strcmp(f->fun_ident, "allouer") == 0)
     return 2;

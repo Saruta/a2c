@@ -1,8 +1,18 @@
 #!/bin/sh
 set -e
 
+echo "French test:"
 valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all \
   ./a2c tests/intvect.algo > tests/intvect.c
 gcc -std=c99 tests/intvect.c -o tests/intvect
 ./tests/intvect | diff tests/intvectexp -
+
+echo "English test:"
+valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all \
+  ./a2c --en tests/intvect_en.algo > tests/intvect_en.c
+gcc -std=c99 tests/intvect_en.c -o tests/intvect
+./tests/intvect | diff tests/intvectexp - 
+
 set +e
+
+

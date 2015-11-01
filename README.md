@@ -1,7 +1,11 @@
 # A2C
 
-A compiler for the algorithmic language taught at EPITA.
-Copyright ® - 2015 by MALT Team
+A2C is a compiler for the algorithmic language taught at EPITA. Specifications for the
+language are available in french
+[here](http://algo.infoprepa.epita.fr/index.php/Epita:Algo:M%C3%A9mo-Langage).
+It translates algorithms to C programs, and the result can be compiled
+with any C compiler. For ease of use, you can also try the [web
+interface](http://a2c.too.gy).
 
 # Installation
 Download and extract the zip file, or clone the project with git. Then from the
@@ -14,6 +18,16 @@ root directory run:
 make
 
 sudo make install
+
+## Usage
+
+To compile in french version:
+
+./a2c FILE > FILE.c
+
+To compile in english version:
+
+./a2c --en FILE > FILE.c
 
 ## MALT
 
@@ -30,6 +44,8 @@ Charles Yaiche (charles.yaiche@epita.fr)
 ## Documentation
 
 See the documentation section of the website (http://a2c.lucien-boillod.net/src/docs/index.html)
+
+Many examples are available in the tests/ directory.
 
 ## Contact List
 You can simply send a mail to one of our personal addresses, or contact us via our website (http://a2c.lucien-boillod.net).

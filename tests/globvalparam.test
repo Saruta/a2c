@@ -1,6 +1,12 @@
 #!/bin/sh
 set -e
 
+echo "French test:"
 valgrind -q --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./a2c tests/globvalparam.algo 2> tests/out || true
 diff tests/globvalparam tests/out
+echo "English test:"
+valgrind -q --error-exitcode=1 --leak-check=full --show-leak-kinds=all \
+  ./a2c --en tests/globvalparam_en.algo 2> tests/out || true
+diff tests/globvalparam tests/out
+
 set +e
