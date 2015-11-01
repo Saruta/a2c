@@ -1,6 +1,12 @@
 #!/bin/sh
 set -e
 
+echo "French test:"
 valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./a2c tests/fibo.algo > tests/out
 diff tests/fibo.c tests/out
+echo "English test:"
+valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all \
+  ./a2c --en tests/fibo_en.algo > tests/out
+diff tests/fibo.c tests/out
+
 set +e

@@ -1,0 +1,21 @@
+algorithm function testswitch: int
+local parameters
+  int n
+variables
+  int a, b
+begin
+  a <- 0
+  b <- 0
+  caseof n do
+    1, 2 : b <- 1
+    3 : b <- 2
+    default b <- 0
+  end caseof
+  return b
+end algorithm function testswitch
+
+variables
+  boolean variable_globale
+begin
+  write(testswitch(2))
+end
