@@ -1,0 +1,18 @@
+algorithm procedure blabla
+types
+  t_tab_int = max * min int
+variables
+  int i, j
+  t_tab_int mat
+begin
+  i <- 1
+  j <- 2
+  mat[i, j] <- 4
+end algorithm procedure blabla
+
+constants
+  int max = 5
+  int min = 3
+begin
+  blabla()
+end

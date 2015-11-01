@@ -1,7 +1,12 @@
 #!/bin/sh
 set -e
 
+echo "French test:"
 valgrind -q --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./a2c tests/arrayfail.algo 2> tests/out || true
+diff tests/arrayfail.c tests/out
+echo "English test:"
+valgrind -q --error-exitcode=1 --leak-check=full --show-leak-kinds=all \
+  ./a2c --en tests/arrayfail_en.algo 2> tests/out || true
 diff tests/arrayfail.c tests/out
 set +e
 
